@@ -1,0 +1,72 @@
+<html lang="ja">
+
+  <head>
+  
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="time-style.css">
+    
+    <script type="text/javascript">
+    </script>
+    
+    <title>空色カウントアップタイマー</title>
+    
+  </head>
+  
+  <body>
+    
+    <div id="timer" style="font-size:100px;">Timer</div> 
+    
+    <br>
+    
+    <button id="start" onclick="start();" style="font-size:35px;">Start</button>
+    <button id="stop" onclick="stop();" style="font-size:35px;">Stop</button>
+    <button id="reset" onclick="reset();" style="font-size:35px;">Reset</button>
+    
+    <script>
+      
+      var t=0;
+      var timer=0;
+      var mode="停止中";
+      
+      function start(){
+      
+        if (mode==="停止中"){
+        
+          timer = setInterval(showTime, 1000);
+          mode="動作中";
+          
+        }
+      }
+      
+      function stop(){
+      
+        if (mode==="動作中"){
+        
+          clearInterval(timer);
+          mode="停止中";
+        
+        }
+      }
+      
+      function reset(){
+      
+        clearInterval(timer);
+        mode="停止中";
+        t=0;
+        document.getElementById("timer").innerHTML=t;
+      
+      }
+      
+      function showTime(){
+      
+        t++;
+        document.getElementById("timer").innerHTML=t;
+        
+      }
+      
+    </script>
+    
+  </body>
+  
+</html>

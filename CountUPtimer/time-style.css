@@ -1,0 +1,47 @@
+body{
+	text-align:center;
+}
+
+
+#timer{
+	box-sizing:border-box;
+	padding:10px;
+	margin-top:4px;
+	text-align:center;
+	color:#AFEEEE;
+}
+
+#start{
+	box-sizing:border-box;
+	width:150px;
+	height:75px;
+	margin-top:15px;
+	padding:10px;
+	font-size:25px;
+	background-color:#AFEEEE;
+	border-radius:15px
+}
+
+#stop{
+	box-sizing:border-box;
+	width:150px;
+	height:75px;
+	margin-top:15px;
+	padding:10px;
+	text-align:center;
+	font-size:30px;
+	background-color:#AFEEEE;
+	border-radius:15px
+}
+
+#reset{
+	box-sizing:border-box;
+	width:150px;
+	height:75px;
+	margin-top:15px;
+	padding:10px;
+	text-align:center;
+	font-size:30px;
+	background-color:#AFEEEE;
+	border-radius:15px
+}
