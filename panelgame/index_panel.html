@@ -1,0 +1,313 @@
+<html>
+
+  <head>
+    <meta name="robots" content="noindex">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="game-style.css">
+    
+    <title>PaneL GAME</title>
+
+  </head>
+
+  <body>
+
+  <div style="width:900px; margin:0 auto;">
+  
+    <div style="text-align:center; margin-top:10px; font-size:60px; color:#FF69B4;">
+        
+          PaneL GAME
+          
+    </div>
+    
+    <br>
+
+    <div class="bar">
+
+        <div id="timer" class="time">Timer</div>
+
+        <div id="score" class="score"></div>
+        
+        <button id="start" class="start" onclick="start();">Start</button>
+
+    </div>
+
+    <div class="all">
+
+      <div id="paneru0" class="box" onclick="paneru(0);"><img src="にんじん.PNG" width="100%"></div>
+      <div id="paneru1" class="box" onclick="paneru(1);"><img src="にんじん.PNG" width="100%"></div>
+      <div id="paneru2" class="box" onclick="paneru(2);"><img src="風船.PNG" width="100%"></div>
+      <div id="paneru3" class="box" onclick="paneru(3);"><img src="風船.PNG" width="100%"></div>
+      <div id="paneru4" class="box" onclick="paneru(4);"><img src="流れ星.PNG" width="100%"></div>
+      <div id="paneru5" class="box" onclick="paneru(5);"><img src="流れ星.PNG" width="100%"></div>
+      <div id="paneru6" class="box" onclick="paneru(6);"><img src="たこ.PNG" width="100%"></div>
+      <div id="paneru7" class="box" onclick="paneru(7);"><img src="たこ.PNG" width="100%"></div>
+      <div id="paneru8" class="box" onclick="paneru(8);"><img src="赤リボン.PNG" width="100%"></div>
+      <div id="paneru9" class="box" onclick="paneru(9);"><img src="赤リボン.PNG" width="100%"></div>
+      <div id="paneru10" class="box" onclick="paneru(10);"><img src="ビリヤード.PNG" width="100%"></div>
+      <div id="paneru11" class="box" onclick="paneru(11);"><img src="ビリヤード.PNG" width="100%"></div>
+      <div id="paneru12" class="box" onclick="paneru(12);"><img src="オレンジ花.PNG" width="100%">13</div>
+      <div id="paneru13" class="box" onclick="paneru(13);"><img src="オレンジ花.PNG" width="100%">14</div>
+      <div id="paneru14" class="box" onclick="paneru(14);"><img src="おにぎり.PNG" width="100%">15</div>
+      <div id="paneru15" class="box" onclick="paneru(15);"><img src="おにぎり.PNG" width="100%">16</div>
+      <div id="paneru16" class="box" onclick="paneru(16);"><img src="あめ.PNG" width="100%">17</div>
+      <div id="paneru17" class="box" onclick="paneru(17);"><img src="あめ.PNG" width="100%">18</div>
+      <div id="paneru18" class="box" onclick="paneru(18);"><img src="うさぎ.PNG" width="100%">19</div>
+      <div id="paneru19" class="box" onclick="paneru(19);"><img src="うさぎ.PNG" width="100%">20</div>
+      <div id="paneru20" class="box" onclick="paneru(20);"><img src="" width="100%">21</div>
+      <div id="paneru21" class="box" onclick="paneru(21);"><img src="" width="100%">22</div>
+      <div id="paneru22" class="box" onclick="paneru(22);"><img src="" width="100%">23</div>
+      <div id="paneru23" class="box" onclick="paneru(23);"><img src="" width="100%">24</div>
+      <div id="paneru24" class="box" onclick="paneru(24);"><img src="" width="100%">25</div>
+      <div id="paneru25" class="box" onclick="paneru(25);"><img src="" width="100%">26</div>
+      <div id="paneru26" class="box" onclick="paneru(26);"><img src="" width="100%">27</div>
+      <div id="paneru27" class="box" onclick="paneru(27);"><img src="" width="100%">28</div>
+      <div id="paneru28" class="box" onclick="paneru(28);"><img src="" width="100%">29</div>
+      <div id="paneru29" class="box" onclick="paneru(29);"><img src="" width="100%">30</div>
+      <div id="paneru30" class="box" onclick="paneru(30);"><img src="" width="100%">31</div>
+      <div id="paneru31" class="box" onclick="paneru(31);"><img src="" width="100%">32</div>
+      <div id="paneru32" class="box" onclick="paneru(32);"><img src="" width="100%">33</div>
+      <div id="paneru33" class="box" onclick="paneru(33);"><img src="" width="100%">34</div>
+      <div id="paneru34" class="box" onclick="paneru(34);"><img src="" width="100%">35</div>
+      <div id="paneru35" class="box" onclick="paneru(35);"><img src="" width="100%">36</div>
+      <div id="paneru36" class="box" onclick="paneru(36);"><img src="" width="100%">37</div>
+      <div id="paneru37" class="box" onclick="paneru(37);"><img src="" width="100%">38</div>
+      <div id="paneru38" class="box" onclick="paneru(38);"><img src="" width="100%">39</div>
+      <div id="paneru39" class="box" onclick="paneru(39);"><img src="" width="100%">40</div>
+      <div id="paneru40" class="box" onclick="paneru(40);"><img src="" width="100%">41</div>
+      <div id="paneru41" class="box" onclick="paneru(41);"><img src="" width="100%">42</div>
+      <div id="paneru42" class="box" onclick="paneru(42);"><img src="" width="100%">43</div>
+      <div id="paneru43" class="box" onclick="paneru(43);"><img src="" width="100%">44</div>
+      <div id="paneru44" class="box" onclick="paneru(44);"><img src="" width="100%">45</div>
+      <div id="paneru45" class="box" onclick="paneru(45);"><img src="" width="100%">46</div>
+      <div id="paneru46" class="box" onclick="paneru(46);"><img src="" width="100%">47</div>
+      <div id="paneru47" class="box" onclick="paneru(47);"><img src="" width="100%">48</div>
+      <div id="paneru48" class="box" onclick="paneru(48);"><img src="" width="100%">49</div>
+      <div id="paneru49" class="box" onclick="paneru(49);"><img src="" width="100%">50</div>
+      <div id="paneru50" class="box" onclick="paneru(50);"><img src="" width="100%">51</div>
+      <div id="paneru51" class="box" onclick="paneru(51);"><img src="" width="100%">52</div>
+      <div id="paneru52" class="box" onclick="paneru(52);"><img src="" width="100%">53</div>
+      <div id="paneru53" class="box" onclick="paneru(53);"><img src="" width="100%">54</div>
+      <div id="paneru54" class="box" onclick="paneru(54);"><img src="" width="100%">55</div>
+      <div id="paneru55" class="box" onclick="paneru(55);"><img src="" width="100%">56</div>
+      <div id="paneru56" class="box" onclick="paneru(56);"><img src="" width="100%">57</div>
+      <div id="paneru57" class="box" onclick="paneru(57);"><img src="" width="100%">58</div>
+      <div id="paneru58" class="box" onclick="paneru(58);"><img src="" width="100%">59</div>
+      <div id="paneru59" class="box" onclick="paneru(59);"><img src="" width="100%">60</div>
+      <div id="paneru60" class="box" onclick="paneru(60);"><img src="" width="100%">61</div>
+      <div id="paneru61" class="box" onclick="paneru(61);"><img src="" width="100%">62</div>
+      <div id="paneru62" class="box" onclick="paneru(62);"><img src="" width="100%">63</div>
+      <div id="paneru63" class="box" onclick="paneru(63);"><img src="" width="100%">64</div>
+      <div style="clear:both;"></div>
+
+    </div>
+    <div style="clear:both;"></div>
+
+  </div>
+  
+  <script>
+
+      var t=60;
+      //残り時間の変数
+      
+      var timer=0;
+      //タイマー管理の変数
+      
+      var mode="停止中";
+      //ゲームの動作状態
+      
+      var gameStart=false;
+      //ゲーム開始時の判定
+      
+      var score=0;
+      //スコア管理の変数
+      
+      var select=[];
+      //クリックしたパネルを記録する変数
+      
+      var pair=[];
+      //ペアの対応
+      
+      
+      
+      for(var i=0;i < 64; i += 2){
+      
+          pair[i]=i+1;
+          pair[i+1]=i;
+          
+      }//パネルがそれぞれペアになる処理
+      
+      
+      function start(){
+      
+        if (mode=="停止中"){
+        
+          if(t <= 0){
+          
+            t=60;
+            //タイマーの時間指定
+            
+            score=0;
+            document.getElementById("score").innerHTML="score:";
+            //スコア追加の処理とデフォルトの数
+            
+            for(var i=0; i<64; i++){
+            
+                var element=document.getElementById("paneru"+i);
+                
+                element.style.visibility="visible";
+                element.style.backgroundColor="";
+                
+            }//ゲームが終わった状態でスタートを押すとパネルとタイマーを初期状態に戻す処理
+            
+            
+            select=[];
+            
+          }//選択状態リセット
+          
+          
+          document.getElementById("timer").innerHTML=t;
+          
+          random();
+          
+          timer = setInterval(showTime, 1000);
+          mode="動作中";
+          
+          gameStart=true;
+          
+        }//スタートを押すとタイマーとゲームが動き出す処理
+        
+        
+      }//スタートに関する処理
+      
+      
+      function showTime(){
+      
+        t--;
+        document.getElementById("timer").innerHTML=t;
+        
+        if(t <= 0){
+        
+          clearInterval(timer);
+          mode="停止中";
+          
+          gameStart=false;
+          
+          if(select.length == 1){
+          
+              document.getElementById("paneru"+select[0]).style.backgroundColor="";
+              
+          }//タイマーを減らして、0秒になったらゲームを停止する処理＋選択途中のパネルも戻す処理
+          
+          select=[];
+          
+        }//選択解除の処理
+        
+        
+      }//スタートを押すと、タイマーが動いてパネルの色が変えられるようになる処理
+      //ここまでスタートに関する処理
+      
+      
+      function paneru(x){
+      
+        if(gameStart==false){
+        
+          return;
+          
+        }//スタートを押すまでパネルの色を変えられないようにする処理
+        
+        
+        var element=document.getElementById("paneru" + x);
+        
+        if(element.style.visibility == "hidden"){
+          
+            return;
+          
+        }//消えたパネルをクリック不可にする処理
+        
+        
+        if(select.includes(x)){
+          
+            return;
+          
+        }//選択しているパネルをもう一度クリック出来ないようにする処理
+        
+        
+        element.style.backgroundColor="#FFB6C1";
+        //パネルをクリックすると指定色に変更させる処理
+        
+        
+        select.push(x);
+        //ペア判定用のクリックした番号を記録する処理
+        
+        
+        if(select.length == 2){
+        
+            var a=select[0];
+            var b=select[1];
+            
+            if(pair[a] == b){
+            
+                document.getElementById("paneru"+a).style.visibility="hidden";
+                document.getElementById("paneru"+b).style.visibility="hidden";
+                
+                score++;
+                
+                document.getElementById("score").innerHTML="";
+                
+                for(var i=0; i<score; i++){
+                
+                  document.getElementById("score").innerHTML+='<img src="うさぎ.PNG" width="11%">';
+                
+                }//スコアうさぎが増える処理
+                
+            }else{
+            
+            document.getElementById("paneru"+a).style.backgroundColor="";
+            document.getElementById("paneru"+b).style.backgroundColor="";
+            
+            }//ペアかどうか判定し、合っていれば消して間違っていれば色を戻すための処理
+            
+            
+            select=[];
+            
+          }//選択状態リセット処理
+          
+      
+      }//パネルの色がクリックしたら変わる処理＋ペアが合ってれば消える、間違ってたら選択しなおせる処理
+      //ここまでパネルに関する処理
+      
+      
+      function random(){
+          
+          var all=document.querySelector(".all");
+          var p=Array.from(document.querySelectorAll(".box"));
+          
+          for(var i=p.length - 1;i >0; i--){
+          
+              var j=Math.floor(Math.random()*(i+1));
+              
+              var temp=p[i];
+              p[i]=p[j];
+              p[j]=temp;
+              
+          }
+          
+          var clear=all.lastElementChild;
+          
+          for(var i=0; i< p.length; i++){
+          
+              all.appendChild(p[i]);
+              
+          }
+          
+          all.appendChild(clear);
+          
+      }
+      
+      //ここまでランダムに関する処理
+
+  </script>
+
+  </body>
+
+</html>
