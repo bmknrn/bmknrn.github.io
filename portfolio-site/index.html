@@ -68,37 +68,43 @@
 
 				<div class="work1">
 
-					<img src="本チラシ.png">
+					<img src="本チラシ.png" class="zoom-img">
 
 				</div>
 
 				<div class="work2">
 
-					<img src="オリゴ党.png">
+					<img src="オリゴ党.png" class="zoom-img">
 
 				</div>
 
 				<div class="work3">
 
-					<img src="ロゴマーク1.png">
+					<img src="ロゴマーク1.png" class="zoom-img">
 
 				</div>
 
 			</div>
 			<div style="clear:both;"></div>
 
+			<div id="image-big">
+
+				<img id="big-image" src="">
+
+			</div>
+
 
 			<div style="position:relative;">
 
 				<div style="position:absolute; bottom:-300px; left:-20px;">
 
-					<img src="WEB用イラスト1.PNG "width="220" height="220">
+					<img src="WEB用イラスト1.PNG" width="220" height="220">
 
 				</div>
 
 				<div style="position:absolute; bottom:-300px; right:-20px;">
 
-					<img src="WEB用イラスト2.PNG "width="240" height="240">
+					<img src="WEB用イラスト2.PNG" width="240" height="240">
 
 				</div>
 
@@ -124,12 +130,56 @@
 
 	<script>
 
-	
 
-	</script>
+		const images=document.querySelectorAll(".zoom-img");				/*拡大対象の画像を取得*/
+
+		const modal=document.getElementById("image-big");					/*拡大表示用の背景と画像を取得*/
+		const modalImage=document.getElementById("big-image");
+
+		images.forEach(function(image){
+
+			image.addEventListener("click", function(){
+
+				modalImage.src=image.src;
+				modalImage.alt=image.alt;
+
+				modal.style.display="flex";
+
+				requestAnimationFrame(function(){
+
+					requestAnimationFrame(function(){
+
+						modal.classList.add("show");
+
+					});
+
+				});															/*表示アニメを開始*/
+
+			});
+
+		});																	/*画像をクリックしたとき*/
+
+		 modal.addEventListener("click",function(event){
+
+			if(event.target === modal){
+
+				modal.classList.remove("show");
+
+					setTimeout(function(){
+
+						modal.style.display="none";
+
+					},400);
+
+			}
+
+		});
 
 
-	</body>
+</script>
+
+
+</body>
 
 
 </html>
