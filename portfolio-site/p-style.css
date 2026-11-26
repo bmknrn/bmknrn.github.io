@@ -176,4 +176,36 @@ img{
 	cursor:zoom-in;
 }
 
+.slider-button{
+	display:none;
+	position:absolute;
+	top:50%;
+	transform:translateY(-50%);
+	width:50px;
+	height:50px;
+	border:none;
+	border-radius:50%;
+	background-color:rgba(0, 0, 0, 0.6);
+	color:white;
+	font-size:25px;
+	cursor:pointer;
+	z-index:1001;
+	justify-content:center;
+	align-items:center;
+}
 
+#image-big.logo-modal .slider-button{
+display:flex;
+}
+
+.slider-button.prev{
+	left:30px;
+}
+
+.slider-button.next{
+	right:30px;
+}
+
+.slider-button:hover{
+	background-color:rgba(0, 0, 0, 0.9);
+}

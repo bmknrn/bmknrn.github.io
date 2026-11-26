@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="p-style.css">
 		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 
-		<title>ポートフォリオ</title>
+		<title>中大路絵実のPortfolio</title>
 
 	</head>
 
@@ -80,16 +80,30 @@
 
 				<div class="work3">
 
-					<img src="ロゴマーク1.png" class="zoom-img">
+					<div class="logo-slider">
+
+						<img id="logo-slide" src="ロゴマーク1.png" class="zoom-img" alt="ロゴマーク">
+
+					</div>
 
 				</div>
-
-			</div>
-			<div style="clear:both;"></div>
+				<div style="clear:both;"></div>
 
 			<div id="image-big">
 
-				<img id="big-image" src="">
+				<button class="slider-button prev" type="button">
+
+					&#10094;
+
+				</button>
+
+				<img id="big-image" src="" alt="">
+
+				<button class="slider-button next" type="button">
+
+					&#10095;
+
+				</button>
 
 			</div>
 
@@ -131,10 +145,10 @@
 	<script>
 
 
-		const images=document.querySelectorAll(".zoom-img");				/*拡大対象の画像を取得*/
+		const images=document.querySelectorAll(".zoom-img");							/*拡大対象の画像を取得*/
 
-		const modal=document.getElementById("image-big");					/*拡大表示用の背景と画像を取得*/
-		const modalImage=document.getElementById("big-image");
+		const modal=document.getElementById("image-big");
+		const modalImage=document.getElementById("big-image");							/*拡大表示用の背景と画像を取得*/
 
 		images.forEach(function(image){
 
@@ -142,6 +156,8 @@
 
 				modalImage.src=image.src;
 				modalImage.alt=image.alt;
+
+				modal.classList.toggle("logo-modal",image.id==="logo-slide");
 
 				modal.style.display="flex";
 
@@ -153,27 +169,86 @@
 
 					});
 
-				});															/*表示アニメを開始*/
+				});
 
 			});
 
-		});																	/*画像をクリックしたとき*/
+		});																				/*画像をクリックしたときのズーム処理*/
 
-		 modal.addEventListener("click",function(event){
+		modal.addEventListener("click",function(event){
 
-			if(event.target === modal){
+			if(event.target===modal){
 
 				modal.classList.remove("show");
 
-					setTimeout(function(){
+				setTimeout(function(){
 
-						modal.style.display="none";
+					modal.style.display="none";
 
-					},400);
+				},400);
 
 			}
 
-		});
+		});																				/*背景をクリックしたら閉じる*/
+
+
+		const logoImages=[
+
+			"ロゴマーク1.png",
+			"ロゴマーク2.png",
+			"ロゴマーク3.png"
+
+		];																				/*ロゴスライダーの画像一覧*/
+
+
+		const logoSlide=document.getElementById("logo-slide");
+
+		let currentIndex=0;
+
+		function changeLogo(index){
+
+			currentIndex=index;
+			logoSlide.src=logoImages[currentIndex];
+
+		}																				/*表示するロゴを変更*/
+
+
+		const modalPrevButton=document.querySelector(".slider-button.prev");
+		const modalNextButton=document.querySelector(".slider-button.next");			/*拡大画面の矢印を取得*/
+
+		modalPrevButton.addEventListener("click",function(event){
+
+			event.stopPropagation();
+
+			currentIndex--;
+
+			if(currentIndex < 0){
+
+				currentIndex=logoImages.length -1 ;
+
+			}
+
+			changeLogo(currentIndex);
+			modalImage.src=logoSlide.src;
+
+		});																				/*拡大画面で前のロゴに切り替える*/
+
+		modalNextButton.addEventListener("click",function(event){
+
+			event.stopPropagation();
+
+			currentIndex++;
+
+			if(currentIndex >=logoImages.length){
+
+				currentIndex=0;
+
+			}
+
+			changeLogo(currentIndex);
+			modalImage.src = logoSlide.src;
+
+		});																				/*拡大画面で次のロゴに切り替える*/
 
 
 </script>
