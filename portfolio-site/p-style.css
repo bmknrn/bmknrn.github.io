@@ -198,6 +198,10 @@ img{
 display:flex;
 }
 
+#image-big.flyer-modal .slider-button{
+	display: flex;
+}
+
 .slider-button.prev{
 	left:30px;
 }
@@ -208,4 +212,8 @@ display:flex;
 
 .slider-button:hover{
 	background-color:rgba(0, 0, 0, 0.9);
+}
+
+.slider-button{
+	display:none;
 }

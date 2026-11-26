@@ -68,7 +68,11 @@
 
 				<div class="work1">
 
-					<img src="本チラシ.png" class="zoom-img">
+					<div class="flyer-slider">
+
+						<img id="flyer-slide" src="本チラシ.png" class="zoom-img" alt="本チラシ">
+
+					</div>
 
 				</div>
 
@@ -88,6 +92,8 @@
 
 				</div>
 				<div style="clear:both;"></div>
+
+			</div>
 
 			<div id="image-big">
 
@@ -145,39 +151,148 @@
 	<script>
 
 
-		const images=document.querySelectorAll(".zoom-img");							/*拡大対象の画像を取得*/
+		const logoImages=[
 
+			"ロゴマーク1.png",
+			"ロゴマーク2.png",
+			"ロゴマーク3.png"
+
+		];																		/*ロゴ画像一覧*/
+
+		const flyerImages = [
+
+			"本チラシ.png",
+			"酔族館_初報.png",
+			"酔族館チラシ2.png",
+			"酔族館チラシ3.png",
+			"酔族館チラシ4.png",
+			"酔族館チラシ5.png",
+
+		];																		/*本チラシ画像一覧*/
+
+
+		const galleries={
+
+			logo:{
+
+				images:logoImages,
+				element:document.getElementById("logo-slide")
+
+			},
+
+			flyer:{
+
+				images:flyerImages,
+				element:document.getElementById("flyer-slide")
+
+			}
+
+		};																		/*画像一覧と表示用画像をまとめる*/
+
+		/*拡大画面の取得*/
+		const images=document.querySelectorAll(".zoom-img");
 		const modal=document.getElementById("image-big");
-		const modalImage=document.getElementById("big-image");							/*拡大表示用の背景と画像を取得*/
+		const modalImage=document.getElementById("big-image");
+
+		/*拡大中の画像一覧と番号*/
+		let currentGallery=null;
+		let currentIndex=0;
+
+
+		function changeGallery(index){
+
+			if(currentGallery === null){
+
+				return;
+
+			}
+
+			const gallery=galleries[currentGallery];
+
+			currentIndex=index;
+
+			gallery.element.src=gallery.images[currentIndex];
+
+			modalImage.src=gallery.element.src;
+
+		}																		/*画像を切り替える*/
+
 
 		images.forEach(function(image){
 
-			image.addEventListener("click", function(){
+			image.addEventListener("click",function(){
 
-				modalImage.src=image.src;
-				modalImage.alt=image.alt;
+				if(image.id === "logo-slide"){
 
-				modal.classList.toggle("logo-modal",image.id==="logo-slide");
+					currentGallery = "logo";
 
-				modal.style.display="flex";
+				}																/*ロゴか本チラシかを判定*/
 
-				requestAnimationFrame(function(){
+				else if(image.id === "flyer-slide"){
 
-					requestAnimationFrame(function(){
+					currentGallery="flyer";
 
-						modal.classList.add("show");
+				}else{
 
-					});
+					currentGallery=null;
 
-				});
+				}																/*画像をクリックしたときのズーム*/
+
+			/*拡大画像を設定*/
+			modalImage.src=image.src;
+			modalImage.alt=image.alt;
+
+			modal.classList.remove("logo-modal","flyer-modal");
+
+			if(currentGallery === "logo"){
+
+				modal.classList.add("logo-modal");
+
+			}
+
+			if(currentGallery === "flyer"){
+
+				modal.classList.add("flyer-modal");
+
+			}																	/*矢印の表示対象を切り替える*/
+
+			if(currentGallery !== null){
+
+				const gallery=galleries[currentGallery];
+
+				currentIndex=gallery.images.indexOf(
+
+					gallery.element.getAttribute("src")
+
+				);
+
+				if(currentIndex < 0){
+
+					currentIndex=0;
+
+				}
+
+			}																	/*現在表示している画像の番号を取得*/
+
+		modal.style.display="flex";
+
+		requestAnimationFrame(function(){
+
+			requestAnimationFrame(function(){
+
+				modal.classList.add("show");
 
 			});
 
-		});																				/*画像をクリックしたときのズーム処理*/
+		});
+
+		});
+
+		});																		/*拡大画面を表示*/
 
 		modal.addEventListener("click",function(event){
 
-			if(event.target===modal){
+			if(event.target === modal){
 
 				modal.classList.remove("show");
 
@@ -189,66 +304,55 @@
 
 			}
 
-		});																				/*背景をクリックしたら閉じる*/
-
-
-		const logoImages=[
-
-			"ロゴマーク1.png",
-			"ロゴマーク2.png",
-			"ロゴマーク3.png"
-
-		];																				/*ロゴスライダーの画像一覧*/
-
-
-		const logoSlide=document.getElementById("logo-slide");
-
-		let currentIndex=0;
-
-		function changeLogo(index){
-
-			currentIndex=index;
-			logoSlide.src=logoImages[currentIndex];
-
-		}																				/*表示するロゴを変更*/
-
+		});																		/*背景をクリックしたら閉じる*/
 
 		const modalPrevButton=document.querySelector(".slider-button.prev");
-		const modalNextButton=document.querySelector(".slider-button.next");			/*拡大画面の矢印を取得*/
 
 		modalPrevButton.addEventListener("click",function(event){
 
 			event.stopPropagation();
 
+			if(currentGallery === null){
+
+				return;
+
+			}
+
 			currentIndex--;
 
 			if(currentIndex < 0){
 
-				currentIndex=logoImages.length -1 ;
+				currentIndex = galleries[currentGallery].images.length - 1;
 
 			}
 
-			changeLogo(currentIndex);
-			modalImage.src=logoSlide.src;
+			changeGallery(currentIndex);
 
-		});																				/*拡大画面で前のロゴに切り替える*/
+		});																		/*拡大画面の左矢印*/
+
+		const modalNextButton=document.querySelector(".slider-button.next");
 
 		modalNextButton.addEventListener("click",function(event){
 
 			event.stopPropagation();
 
-			currentIndex++;
+			if(currentGallery === null){
 
-			if(currentIndex >=logoImages.length){
-
-				currentIndex=0;
+				return;
 
 			}
 
-			changeLogo(currentIndex);
-			modalImage.src = logoSlide.src;
+			currentIndex++;
 
-		});																				/*拡大画面で次のロゴに切り替える*/
+			if(currentIndex >= galleries[currentGallery].images.length){
+
+				currentIndex=0;
+
+			}																	/*拡大画面の右矢印*/
+
+			changeGallery(currentIndex);
+
+		});
 
 
 </script>
